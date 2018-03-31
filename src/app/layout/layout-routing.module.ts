@@ -15,7 +15,11 @@ const routes: Routes = [
             { path: 'bs-element', loadChildren: './bs-element/bs-element.module#BsElementModule' },
             { path: 'grid', loadChildren: './grid/grid.module#GridModule' },
             { path: 'components', loadChildren: './bs-component/bs-component.module#BsComponentModule' },
-            { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' }
+            { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' },
+            { path: 'tournaments', loadChildren: '../modules/tournament/tournament.module#TournamentModule' },
+            { path: 'matches-result', loadChildren: '../modules/match/matches-list/matches-list.module#MatchesListModule' },
+            { path: 'matches', loadChildren: '../modules/matches/matches.module#MatchesModule' },
+            { path: 'stage', loadChildren: '../modules/stage-editor/stage-editor.module#StageEditorModule' }
         ]
     }
 ];

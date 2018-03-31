@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
+import {CurrentTournamentService} from '../../../services/global/current-tournament.service';
+
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
@@ -10,7 +12,10 @@ import { TranslateService } from '@ngx-translate/core';
 export class HeaderComponent implements OnInit {
     pushRightClass: string = 'push-right';
 
-    constructor(private translate: TranslateService, public router: Router) {
+    constructor(
+        private translate: TranslateService,
+        public router: Router,
+        private currentTournament: CurrentTournamentService) {
 
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de']);
         this.translate.setDefaultLang('en');

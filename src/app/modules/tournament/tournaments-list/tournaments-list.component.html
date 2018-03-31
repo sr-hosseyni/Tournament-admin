@@ -1,0 +1,42 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Tournament'" [icon]="'fa-table'"></app-page-header>
+    <div class="row">
+        <div class="col col-md-12">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <a routerLink="/tournaments/create" [routerLinkActive]="['router-link-active']" class="btn btn-outline-primary">
+                        <i class="fa fa-fw fa-futbol-o"></i>&nbsp;{{ 'New Tournament' | translate }}
+                    </a>
+                </div>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Seq-No</th>
+                            <th>Name</th>
+                            <th>Platform</th>
+                            <th>type</th>
+                            <th>logo</th>
+                            <th colspan="2">registerartion</th>
+                            <th colspan="2">competition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tournament of tournaments">
+                            <th scope="row">{{tournament.id}}</th>
+                            <td>{{tournament.sequenceNo}}</td>
+                            <td>{{tournament.name}}</td>
+                            <td>{{tournament.platform}}</td>
+                            <td>tournament.type</td>
+                            <td><img src="{{tournament.logo}}"/></td>
+                            <td>{{tournament.registerStart}}</td>
+                            <td>{{tournament.registerFinish}}</td>
+                            <td>{{tournament.competitionStart}}</td>
+                            <td>{{tournament.competitionFinish}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

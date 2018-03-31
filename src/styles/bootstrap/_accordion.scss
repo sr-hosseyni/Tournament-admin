@@ -1,0 +1,23 @@
+//
+// Base styles
+//
+
+.accordion .card {
+    background-color: inherit;
+}
+
+//
+// Alternate accordions
+//
+
+@each $color, $value in $theme-colors {
+    .accordion-leftline-#{$color} {
+        > .card > .card-header {
+            @include accordion-leftline-variant($value);
+
+            a {
+                color: $value;
+            }
+        }
+    }
+}

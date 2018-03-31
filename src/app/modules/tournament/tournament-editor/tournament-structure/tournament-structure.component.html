@@ -1,0 +1,133 @@
+<form [formGroup]="tournamentForm" novalidate>
+
+    <ngb-accordion #acc="ngbAccordion" [closeOthers]="true" activeIds="0" class="accordion accordion-leftline-warning">
+        <ngb-panel id="0" title="Stages Format">
+            <ng-template ngbPanelContent>
+
+                <fieldset class="form-group">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="card-link text-white mb-3"
+                                [ngClass]="{'bg-primary': isSingleStage(), 'bg-secondary': !isSingleStage()}"
+                                (click)="setSingleStage();">
+                                <div class="card-header">
+                                    <input type="checkbox" formControlName="isSingleStage" hidden />
+                                    <label>Single Stage</label>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Single Stage</h4>
+                                    <ul class="card-text">
+                                        <li>Held in one stage and all teams placed in one group</li>
+                                        <li>Teams don't eliminate during competition</li>
+                                        <li>It's possible for a team to face with each other teams</li>
+                                        <li>This format usually used for Leagues structure</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="card-link text-white mb-3"
+                                [ngClass]="{'bg-primary': !isSingleStage(), 'bg-secondary': isSingleStage()}"
+                                (click)="setMultiStage();">
+                                <div class="card-header">
+                                    <label>Multi Stage</label>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Multiple Stage Mode</h4>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </ng-template>
+        </ngb-panel>
+        <ngb-panel id="1" title="Single Stage" [disabled]="!isSingleStage()">
+            <ng-template ngbPanelContent>
+                <fieldset class="form-group">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card-link text-white mb-3 bg-secondary"
+                                 (click)="step2(1, acc);"
+                                 [ngClass]="{'bg-primary': this.tournamentForm.value.stages[0].type == Enums.StageType.LEAGUE && !this.tournamentForm.value.stages[0].homeAndAway}">
+                                 <div class="card-header">League</div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Single Leg Matches</h4>
+                                    All Teams meet each other teams
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="card-link text-white mb-3 bg-secondary"
+                                 (click)="step2(2, acc);"
+                                 [ngClass]="{'bg-primary': this.tournamentForm.value.stages[0].type == Enums.StageType.LEAGUE && this.tournamentForm.value.stages[0].homeAndAway}">
+                                <div class="card-header">League</div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Home And Away Matchs</h4>
+                                    All Teams meet each other teams
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="card-link text-white mb-3 bg-secondary"
+                                 (click)="step2(3, acc);"
+                                 [ngClass]="{'bg-primary': !this.tournamentForm.value.stages[0].type == Enums.StageType.Manual}">
+                                 <div class="card-header">Manual</div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Manual Matches</h4>
+                                    <p class="card-text">You must create matchs between temas you want</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </ng-template>
+        </ngb-panel>
+
+        <ngb-panel id="2" title="Multi Stage" [disabled]="isSingleStage()">
+            <ng-template ngbPanelContent>
+                <fieldset class="form-group">
+                    <div class="row">
+                        <label class="center-block">Stages</label>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card-link text-white mb-3 bg-secondary"
+                                 (click)="step2(1, acc);"
+                                 [ngClass]="{'bg-primary': this.tournamentForm.value.stages[0].type == Enums.StageType.LEAGUE && !this.tournamentForm.value.stages[0].homeAndAway}">
+                                 <div class="card-header">League</div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Single Leg Matches</h4>
+                                    All Teams meet each other teams
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="card-link text-white mb-3 bg-secondary"
+                                 (click)="step2(2, acc);"
+                                 [ngClass]="{'bg-primary': this.tournamentForm.value.stages[0].type == Enums.StageType.LEAGUE && this.tournamentForm.value.stages[0].homeAndAway}">
+                                 <div class="card-header">League</div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Home And Away Matchs</h4>
+                                    All Teams meet each other teams
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="card-link text-white mb-3 bg-secondary"
+                                 (click)="step2(3, acc);"
+                                 [ngClass]="{'bg-primary': !this.tournamentForm.value.stages[0].type == Enums.StageType.Manual}">
+                                 <div class="card-header">Manual</div>
+                                <div class="card-body">
+                                    <h4 class="card-title">Manual Matches</h4>
+                                    <p class="card-text">You must create matchs between temas you want</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+
+</form>

@@ -1,0 +1,20 @@
+<form [formGroup]="tournamentForm" novalidate>
+
+    <fieldset class="form-group">
+        <label class="center-block">Name</label>
+        <input class="form-control" formControlName="name">
+        <p class="help-block">Example block-level help text here.</p>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label class="center-block">Platform</label> <input
+            class="form-control" formControlName="platform">
+        <p class="help-block">Example : [Foosball, Football, Footsal, PES, FIFA, ...]</p>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label class="center-block">Logo</label>
+        <input class="form-control" formControlName="logo">
+    </fieldset>
+
+</form>

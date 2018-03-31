@@ -54,6 +54,7 @@
 .card-link {
   @include hover {
     text-decoration: none;
+    cursor: pointer;
   }
 
   + .card-link {

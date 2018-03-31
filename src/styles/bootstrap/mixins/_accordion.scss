@@ -1,0 +1,4 @@
+@mixin accordion-leftline-variant($color) {
+    border-left: $thick-border-width solid $color;
+    color: $white !important;
+}

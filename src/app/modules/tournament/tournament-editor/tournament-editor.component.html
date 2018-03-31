@@ -1,0 +1,49 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Create New Tournament'" [icon]="'fa-table'"></app-page-header>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="card text-white bg-dark">
+                <div class="card-header">
+                    <button class="btn btn-outline-info" (click)="t.select('1')">Next</button>
+                    <button class="btn btn-outline-success" (click)="create();">Create</button>
+                </div>
+                <div class="card-body">
+                    <ngb-tabset  #t="ngbTabset" type="pills" [justify]="'center'">
+                        <ngb-tab id="1" title="">
+                            <ng-template ngbTabTitle><b>{{ 'General' | translate }}</b></ng-template>
+                            <ng-template ngbTabContent>
+                                <app-tournament-general
+                                    [tournamentForm]="tournamentForm"
+                                >
+                                </app-tournament-general>
+                            </ng-template>
+                        </ngb-tab>
+                        <ngb-tab title="">
+                            <ng-template ngbTabTitle><b>{{ 'PLanning' | translate }}</b></ng-template>
+                            <ng-template ngbTabContent>
+                                
+                            </ng-template>
+                        </ngb-tab>
+                        <ngb-tab>
+                            <ng-template ngbTabTitle><b>{{ 'Structure' | translate }}</b></ng-template>
+                            <ng-template ngbTabContent>
+                                <app-tournament-structure
+                                    [tournamentForm]="tournamentForm"
+                                >
+                                </app-tournament-structure>
+                            </ng-template>
+                        </ngb-tab>
+                        <ngb-tab title="Disabled" [disabled]="true">
+                            <ng-template ngbTabContent>
+                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
+                                    master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh
+                                    dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+                                    iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                            </ng-template>
+                        </ngb-tab>
+                    </ngb-tabset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
