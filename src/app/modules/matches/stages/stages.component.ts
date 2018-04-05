@@ -17,22 +17,6 @@ export class StagesComponent implements OnInit {
 
     ngOnInit() {
         this.stages = this.currentTournament.tournament.stages;
-    }
-
-    public allowDrop(ev: DragEvent) {
-        ev.preventDefault();
-    }
-
-    drag(ev: DragEvent) {
-        ev.dataTransfer.setData("text", ev.target.id);
-    }
-
-    drop(ev: DragEvent) {
-        ev.preventDefault();
-
-        this.stages[0].groups[0].teams.append('KIIIR');
-
-        var data = ev.dataTransfer.getData("text");
-        ev.target.appendChild(document.getElementById(data));
+        console.log(this.stages[1].teams);
     }
 }
