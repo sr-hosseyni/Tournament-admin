@@ -5,7 +5,7 @@ import {StageEditorComponent} from './stage-editor.component';
 
 const routes: Routes = [
     {
-        path: '',
+        path: ':tournamentId',
         component: StageEditorComponent
     }
 ];

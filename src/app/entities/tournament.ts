@@ -37,4 +37,14 @@ export class Tournament {
     @JsonProperty()
     @JsonType(Stage)
     stages: Stage[];
+
+    getStage(id: number) : Stage {
+        for (let stage of this.stages) {
+            if (stage.id == id) {
+                return stage;
+            }
+        }
+
+        return null;
+    }
 }

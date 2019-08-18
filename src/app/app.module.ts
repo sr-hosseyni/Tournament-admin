@@ -12,7 +12,7 @@ import {TaJsonModule} from './modules/ta-json/ta-json.module';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {AuthGuard} from './shared';
-import {TournamentService} from './services/http/tournament.service';
+import {TournamentService, GroupService, StageService, GeneratorService, StandingService} from './services/http';
 import {CurrentTournamentService} from './services/global/current-tournament.service';
 
 // AoT requires an exported function for factories
@@ -43,6 +43,10 @@ export function createTranslateLoader(http: HttpClient) {
     providers: [
         AuthGuard,
         TournamentService,
+        GroupService,
+        StageService,
+        GeneratorService,
+        StandingService,
         CurrentTournamentService,
         HttpClient
     ],

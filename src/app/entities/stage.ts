@@ -1,7 +1,6 @@
 import {JsonObject, JsonProperty, JsonType} from 'ta-json';
 
-import {Team} from './team';
-//import {Group} from './group';
+import {Team, Group, Enums} from './';
 
 @JsonObject()
 export class Stage {
@@ -12,19 +11,22 @@ export class Stage {
     sequenceNo: number;
 
     @JsonProperty()
-    name: string;
+    name: string = '';
 
     @JsonProperty()
-    homeAndAway: boolean;
+    homeAndAway: boolean = false;
 
     @JsonProperty()
-    type: number;
+    restrictTeamMembershipInGroups: boolean = true;
+
+    @JsonProperty()
+    type: number = Enums.StageType.LEAGUE;
 
     @JsonProperty()
     @JsonType(Team)
     teams: Team[];
 
-//    @JsonProperty()
-//    @JsonType(Team)
-//    groups: Team[];
+    @JsonProperty()
+    @JsonType(Group)
+    groups: Group[];
 }

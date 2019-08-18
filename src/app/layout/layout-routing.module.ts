@@ -19,7 +19,9 @@ const routes: Routes = [
             { path: 'tournaments', loadChildren: '../modules/tournament/tournament.module#TournamentModule' },
             { path: 'matches-result', loadChildren: '../modules/match/matches-list/matches-list.module#MatchesListModule' },
             { path: 'matches', loadChildren: '../modules/matches/matches.module#MatchesModule' },
-            { path: 'stage', loadChildren: '../modules/stage-editor/stage-editor.module#StageEditorModule' }
+            { path: 'stage', loadChildren: '../modules/stage-editor/stage-editor.module#StageEditorModule' },
+            { path: 'group', loadChildren: '../modules/group-editor/group-editor.module#GroupEditorModule' },
+            { path: 'results', loadChildren: '../modules/results/results.module#ResultsModule' }
         ]
     }
 ];

@@ -1,71 +1,47 @@
-<div class="shadow builder" sectionTitle="Builder Demo">
-    <div fxLayout="row" fxLayoutWrap="nowrap" fxFill>
-        <div class="builder-source" fxFlex="20%">
-            <h4>Source</h4>
+<div [@routerTransition]>
+    <app-page-header [heading]="'Create New Stage'" [icon]="'fa-table'"></app-page-header>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <div class="card text-white bg-dark">
+                <div class="card-header">
+                    <button class="btn btn-outline-success" (click)="create();">Create</button>
+                    <a class="btn btn-outline-danger" routerLink="/matches" [routerLinkActive]="['router-link-active']">
+                        Cancel
+                    </a>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="stageForm" novalidate>
 
-            <ngx-dnd-container
-                class="root-container"
-                [model]="sourceBuilderTools"
-                [dropZones]="['builder-target']"
-                [copy]="true"
-                [droppableItemClass]="droppableItemClass"
-                (drag)="builderDrag($event)">
+                        <fieldset class="form-group">
+                            <label class="center-block">Name</label>
+                            <input class="form-control" formControlName="name">
+                            <p class="help-block">The Name Of Stage</p>
+                        </fieldset>
 
-                <ng-template let-item="model">
-                    {{item.name}}
-                </ng-template>
-            </ngx-dnd-container>
+                        <fieldset class="form-group">
+                            <label class="center-block">Type</label>
+                            <select class="form-control" formControlName="type">
+                                <option value="1">LEAGUE</option>
+                                <option value="2">GROUP</option>
+                                <option value="3">PLAY-OFF</option>
+                                <option value="4">MANUAL</option>
+                            </select>
+                            <p class="help-block">Stage's Type</p>
+                        </fieldset>
 
-        </div>
-        <div class="builder-target" fxFlex="60%">
-            <h4>Target</h4>
+                        <fieldset class="form-group">
+                            <label class="center-block">Home And Away</label>
+                            <input type="checkbox" class="form-control" formControlName="homeAndAway">
+                        </fieldset>
 
-            <ngx-dnd-container
-                class="root-container"
-                [model]="targetBuilderTools"
-                dropZone="builder-target"
-                [removeOnSpill]="true"
-                [droppableItemClass]="droppableItemClass"
-                (drag)="log($event)"
-                (drop)="log($event)"
-                (over)="log($event)"
-                (out)="log($event)"
-                (remove)="log($event)">
+                        <fieldset class="form-group">
+                            <label class="center-block">Restrict Team Membership In Groups</label>
+                            <input type="checkbox" class="form-control" formControlName="restrictTeamMembershipInGroups">
+                        </fieldset>
 
-                <ng-template let-model="model" let-template="template">
-                    <div [ngSwitch]="model.inputType">
-                        <div *ngSwitchCase="'section'">
-                            <div class="shadow">
-                                <ngx-dnd-container
-                                    dropZone="builder-target"
-                                    [model]="model.children"
-                                    [removeOnSpill]="true"
-                                    [template]="template"
-                                    [droppableItemClass]="droppableItemClass"
-                                    (drag)="log($event)"
-                                    (drop)="log($event)"
-                                    (over)="log($event)"
-                                    (out)="log($event)"
-                                    (remove)="log($event)"
-                                    (cancel)="log($event)">
-                                </ngx-dnd-container>
-                            </div>
-                        </div>
-                        <div *ngSwitchDefault>
-                            <ngx-input
-                                [type]="model.inputType"
-                                [hint]="model.name"
-                                [autofocus]="false"
-                                [ngModel]="model.data">
-                            </ngx-input>
-                        </div>
-                    </div>
-                </ng-template>
-            </ngx-dnd-container>
-        </div>
-        <div fxFlex>
-            <h3>Model</h3>
-            <pre><code>{{targetBuilderTools | json}}</code></pre>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

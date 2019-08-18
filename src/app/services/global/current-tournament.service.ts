@@ -19,13 +19,13 @@ export class CurrentTournamentService {
         if (this._tournament === null) {
             let strTournament = localStorage.getItem(CurrentTournamentService.localStorageKey);
             if (strTournament) {
-                this.tournament = JSON.parse(strTournament);
+                this.tournament = Object.assign(new Tournament(), JSON.parse(strTournament));
             } else {
                 this._tournament = new Tournament();
             }
 
             this.httpTournament.getTournament(1)
-                .subscribe(tournament => this.tournament = tournament);
+                .subscribe(tournament => this.tournament = Object.assign(new Tournament(), tournament));
         }
 
         return this._tournament;

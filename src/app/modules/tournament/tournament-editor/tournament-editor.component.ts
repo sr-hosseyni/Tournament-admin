@@ -4,7 +4,6 @@ import {FormControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import {TournamentService} from '../../../services/http/tournament.service';
 import {Tournament} from '../../../entities/tournament';
-import {Stage} from '../../../entities/stage';
 
 @Component({
     selector: 'app-tournament-editor',

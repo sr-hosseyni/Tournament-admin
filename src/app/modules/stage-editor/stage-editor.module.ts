@@ -2,12 +2,15 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {StageEditorComponent} from './stage-editor.component';
 import {StageRoutingModule} from './stage-routing.module';
-import {NgxDnDModule} from '@swimlane/ngx-dnd';
+import {ReactiveFormsModule} from '@angular/forms';
+
+import {PageHeaderModule} from '../../shared';
 
 @NgModule({
     imports: [
         CommonModule,
-        NgxDnDModule,
+        ReactiveFormsModule,
+        PageHeaderModule,
         StageRoutingModule
     ],
     declarations: [StageEditorComponent]

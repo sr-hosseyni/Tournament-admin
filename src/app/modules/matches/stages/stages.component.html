@@ -2,9 +2,9 @@
     <app-page-header [heading]="'Tournament Plan (Schedule)'" [icon]="'fa-table'"></app-page-header>
     <div class="row">
         <div class="col col-md-12">
-            <ngb-tabset #t="ngbTabset">
+            <ngb-tabset #t="ngbTabset" activeId="{{selectedStageId}}">
                 <ngb-tab id="{{stage.id}}" *ngFor="let stage of stages">
-                         <ng-template ngbTabTitle><b>{{stage.name}}</b></ng-template>
+                    <ng-template ngbTabTitle><b>{{stage.name}}</b></ng-template>
                     <ng-template ngbTabContent>
                         <div class="row mt-3">
                             <div class="col col-md-8 col-sm-12">
@@ -15,8 +15,15 @@
                                 </p>
 
                                 <div class="card">
-                                    <div class="card-header">
-                                        Groups
+                                    <div class="card-header clearfix">
+                                        <span class="float-left">
+                                            Groups
+                                        </span>
+                                        <span class="float-right">
+                                            <a routerLink="/group/{{stage.id}}" [routerLinkActive]="['router-link-active']">
+                                                <i class="fa fa-fw fa-plus mr-0"></i>
+                                            </a>
+                                        </span>
                                     </div>
                                     <div class="card-body">
                                         <div class="card-text">
@@ -28,7 +35,7 @@
                                                                 {{group.name}}
                                                             </span>
                                                             <span class="float-right">
-                                                                <a routerLink="/tournaments/create" [routerLinkActive]="['router-link-active']">
+                                                                <a routerLink="/matches/matches/{{stage.id}}/{{group.id}}" [routerLinkActive]="['router-link-active']">
                                                                     <i class="fa fa-fw fa-cog"></i>
                                                                 </a>
                                                             </span>
@@ -44,46 +51,21 @@
                                                                     </a>
                                                                 </span>
                                                             </div>
-                                                            <!--                                                            <div ngxDroppable
-                                                                                                                            [model]="group.teams"
-                                                                                                                            dropZone="oneway-target"
-                                                                                                                            [removeOnSpill]="true">
-                                                                                                                        </div>-->
                                                             <div class="card-text">
-                                                                <ul
-                                                                    class="list-group ngx-dnd-container"
-                                                                    ngxDroppable="restricted-target"
-                                                                    [model]="group.teams">
-                                                                    <li
-                                                                        *ngFor="let team of group.teams"
-                                                                        class="list-group-item ngx-dnd-item"
-                                                                        ngxDraggable
-                                                                        >
+                                                                <ngx-dnd-container
+                                                                    class="list-group"
+                                                                    [droppableItemClass]="'list-group-item list-group-item-action'"
+                                                                    [model]="group.teams"
+                                                                    dropZone="groups-teams"
+                                                                    (drop)="addTeamToGroup($event, stage, group)"
+                                                                    (remove)="removeTeamFromGroup($event, stage, group)"
+                                                                    >
+                                                                    <ng-template let-team="model">
                                                                         {{team.name}}
-                                                                </li>
-                                                            </ul>
+                                                                    </ng-template>
+                                                                </ngx-dnd-container>
+                                                            </div>
                                                         </div>
-
-                                                        <!--                                                    <div class="card text-center">
-                                                                                                                <div class="card-header">
-                                                                                                                    <ul class="nav nav-tabs card-header-tabs">
-                                                                                                                        <li class="nav-item">
-                                                                                                                            <a class="nav-link active" href="#">Active</a>
-                                                                                                                        </li>
-                                                                                                                        <li class="nav-item">
-                                                                                                                            <a class="nav-link" href="#">Link</a>
-                                                                                                                        </li>
-                                                                                                                        <li class="nav-item">
-                                                                                                                            <a class="nav-link disabled" href="#">Disabled</a>
-                                                                                                                        </li>
-                                                                                                                    </ul>
-                                                                                                                </div>
-                                                                                                                <div class="card-body">
-                                                                                                                    <h5 class="card-title">Special title treatment</h5>
-                                                                                                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                                                                                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                                                                                                </div>
-                                                                                                            </div>-->
                                                     </div>
                                                 </div>
                                             </div>
@@ -91,45 +73,49 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col col-md-4 col-sm-12">
-                            <div class="card">
-                                <div class="card-header clearfix">
-                                    <span class="float-left">
-                                        All Teams
-                                    </span>
-                                    <span class="float-right">
-                                        <a routerLink="/tournaments/create" [routerLinkActive]="['router-link-active']">
-                                            <i class="fa fa-fw fa-plus"></i>
-                                        </a>
-                                    </span>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="list-group ngx-dnd-container" ngxDroppable [copy]="true">
-                                        <li 
-                                            *ngFor="let team of stage.teams"
-                                            class="list-group-item ngx-dnd-item"
-                                            ngxDraggable="['restricted-target']"
+                            <div class="col col-md-4 col-sm-12">
+                                <div class="card">
+                                    <div class="card-header clearfix">
+                                        <span class="float-left">
+                                            All Teams
+                                        </span>
+                                        <span class="float-right">
+                                            <a routerLink="/tournaments/create" [routerLinkActive]="['router-link-active']">
+                                                <i class="fa fa-fw fa-plus"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div class="card-body teams">
+                                        <ngx-dnd-container
+                                            class="list-group"
+                                            [droppableItemClass]="'list-group-item list-group-item-action'"
+                                            [copy]="true"
+                                            [model]="stage.teams"
+                                            [dropZones]="['groups-teams']"
+                                            [removeOnSpill]="true"
                                             >
-                                            {{team.name}}
-                                        </li>
-                                    </ul>
+                                            <ng-template let-team="model">
+                                                {{team.name}}
+                                            </ng-template>
+                                        </ngx-dnd-container>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </ng-template>
-            </ngb-tab>
-            <ngb-tab>
-                <ng-template ngbTabTitle>
-                    <a routerLink="/stage" [routerLinkActive]="['router-link-active']">
-                        <i class="fa fa-fw fa-plus"></i>
-                    </a>
-                </ng-template>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab>
+                    <ng-template ngbTabTitle>
+                        <a
+                            routerLink="/stage/{{currentTournament.tournament.id}}"
+                            [routerLinkActive]="['router-link-active']">
+                            <i class="fa fa-fw fa-plus"></i>
+                        </a>
+                    </ng-template>
 
-                <ng-template ngbTabContent></ng-template>
-            </ngb-tab>
-        </ngb-tabset>
+                    <ng-template ngbTabContent></ng-template>
+                </ngb-tab>
+            </ngb-tabset>
+        </div>
     </div>
-</div>
 </div>

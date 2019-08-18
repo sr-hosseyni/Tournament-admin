@@ -1,0 +1,13 @@
+<button class="btn btn-primary" (click)="generateMatches()">Generate Matches</button>
+
+<ul>
+    <li *ngFor="let team of group.teams">
+        {{team.name}}
+    </li>
+</ul>
+
+<ul>
+    <li *ngFor="let match of matches">
+        {{match.teams[0].name}} - {{match.teams[1].name}}
+    </li>
+</ul>

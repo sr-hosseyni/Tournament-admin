@@ -1,0 +1,327 @@
+@font-face {
+    font-family: "i";
+    src: url("./fonts/i.eot?6ac964b6901965e7572bd8d3460d064c?#iefix") format("embedded-opentype"),
+url("./fonts/i.woff2?6ac964b6901965e7572bd8d3460d064c") format("woff2"),
+url("./fonts/i.woff?6ac964b6901965e7572bd8d3460d064c") format("woff"),
+url("./fonts/i.ttf?6ac964b6901965e7572bd8d3460d064c") format("truetype"),
+url("./fonts/i.svg?6ac964b6901965e7572bd8d3460d064c#i") format("svg");
+}
+
+i {
+    line-height: 1;
+}
+
+i[class^="icon-"]:before, i[class*=" icon-"]:before {
+    font-family: i !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-amonestation-1:before {
+    content: "\f101";
+}
+.icon-amonestation:before {
+    content: "\f102";
+}
+.icon-area:before {
+    content: "\f103";
+}
+.icon-award:before {
+    content: "\f104";
+}
+.icon-badge-1:before {
+    content: "\f105";
+}
+.icon-badge:before {
+    content: "\f106";
+}
+.icon-ball-2:before {
+    content: "\f107";
+}
+.icon-ball-4:before {
+    content: "\f108";
+}
+.icon-ball-in-midair-1:before {
+    content: "\f109";
+}
+.icon-ball-in-midair-2:before {
+    content: "\f10a";
+}
+.icon-ball:before {
+    content: "\f10b";
+}
+.icon-bench:before {
+    content: "\f10c";
+}
+.icon-boot:before {
+    content: "\f10d";
+}
+.icon-boots:before {
+    content: "\f10e";
+}
+.icon-bracelet:before {
+    content: "\f10f";
+}
+.icon-calendar:before {
+    content: "\f110";
+}
+.icon-card-2:before {
+    content: "\f111";
+}
+.icon-card:before {
+    content: "\f112";
+}
+.icon-cards-fill:before {
+    content: "\f113";
+}
+.icon-cards-shine:before {
+    content: "\f114";
+}
+.icon-cards:before {
+    content: "\f115";
+}
+.icon-change-2:before {
+    content: "\f116";
+}
+.icon-change-3:before {
+    content: "\f117";
+}
+.icon-change:before {
+    content: "\f118";
+}
+.icon-chronometer:before {
+    content: "\f119";
+}
+.icon-competition-draw-2:before {
+    content: "\f11a";
+}
+.icon-competition-draw:before {
+    content: "\f11b";
+}
+.icon-corner-flag:before {
+    content: "\f11c";
+}
+.icon-corner:before {
+    content: "\f11d";
+}
+.icon-counter:before {
+    content: "\f11e";
+}
+.icon-fc-2:before {
+    content: "\f11f";
+}
+.icon-fc:before {
+    content: "\f120";
+}
+.icon-field-3:before {
+    content: "\f121";
+}
+.icon-field-4:before {
+    content: "\f122";
+}
+.icon-field-fill:before {
+    content: "\f123";
+}
+.icon-field-in-perspective:before {
+    content: "\f124";
+}
+.icon-field:before {
+    content: "\f125";
+}
+.icon-flag-1:before {
+    content: "\f126";
+}
+.icon-game-statistics:before {
+    content: "\f127";
+}
+.icon-games-results:before {
+    content: "\f128";
+}
+.icon-glove:before {
+    content: "\f129";
+}
+.icon-goal-1:before {
+    content: "\f12a";
+}
+.icon-goal-2:before {
+    content: "\f12b";
+}
+.icon-goal-3:before {
+    content: "\f12c";
+}
+.icon-goal-4:before {
+    content: "\f12d";
+}
+.icon-goal-5:before {
+    content: "\f12e";
+}
+.icon-goal-6:before {
+    content: "\f12f";
+}
+.icon-grandstand:before {
+    content: "\f130";
+}
+.icon-jersey-1:before {
+    content: "\f131";
+}
+.icon-jersey:before {
+    content: "\f132";
+}
+.icon-list-and-field-outline:before {
+    content: "\f133";
+}
+.icon-list-with-up-and-down-arrows:before {
+    content: "\f134";
+}
+.icon-medal-1:before {
+    content: "\f135";
+}
+.icon-medal-2:before {
+    content: "\f136";
+}
+.icon-medal-3:before {
+    content: "\f137";
+}
+.icon-medal-4:before {
+    content: "\f138";
+}
+.icon-medal-5:before {
+    content: "\f139";
+}
+.icon-newspaper:before {
+    content: "\f13a";
+}
+.icon-offside:before {
+    content: "\f13b";
+}
+.icon-penalty:before {
+    content: "\f13c";
+}
+.icon-player-in-1:before {
+    content: "\f13d";
+}
+.icon-player-mark:before {
+    content: "\f13e";
+}
+.icon-player-out-1:before {
+    content: "\f13f";
+}
+.icon-player-out-2:before {
+    content: "\f140";
+}
+.icon-player-stats:before {
+    content: "\f141";
+}
+.icon-podium-1:before {
+    content: "\f142";
+}
+.icon-podium:before {
+    content: "\f143";
+}
+.icon-position:before {
+    content: "\f144";
+}
+.icon-referee-2:before {
+    content: "\f145";
+}
+.icon-referee:before {
+    content: "\f146";
+}
+.icon-scoreboard-1:before {
+    content: "\f147";
+}
+.icon-scoreboard-2:before {
+    content: "\f148";
+}
+.icon-scoreboard:before {
+    content: "\f149";
+}
+.icon-shield:before {
+    content: "\f14a";
+}
+.icon-shirt-1:before {
+    content: "\f14b";
+}
+.icon-shirt:before {
+    content: "\f14c";
+}
+.icon-shoes:before {
+    content: "\f14d";
+}
+.icon-shorts:before {
+    content: "\f14e";
+}
+.icon-skills:before {
+    content: "\f14f";
+}
+.icon-stadium:before {
+    content: "\f150";
+}
+.icon-stats-graphic:before {
+    content: "\f151";
+}
+.icon-stopwatch-2:before {
+    content: "\f152";
+}
+.icon-stopwatch:before {
+    content: "\f153";
+}
+.icon-team-1:before {
+    content: "\f154";
+}
+.icon-team:before {
+    content: "\f155";
+}
+.icon-ticket:before {
+    content: "\f156";
+}
+.icon-time:before {
+    content: "\f157";
+}
+.icon-timer-clock:before {
+    content: "\f158";
+}
+.icon-trophy-1:before {
+    content: "\f159";
+}
+.icon-trophy-2:before {
+    content: "\f15a";
+}
+.icon-trophy-3:before {
+    content: "\f15b";
+}
+.icon-trophy-4:before {
+    content: "\f15c";
+}
+.icon-trophy-5:before {
+    content: "\f15d";
+}
+.icon-trophy-6:before {
+    content: "\f15e";
+}
+.icon-trophy-7:before {
+    content: "\f15f";
+}
+.icon-trophy:before {
+    content: "\f160";
+}
+.icon-tshirt-1:before {
+    content: "\f161";
+}
+.icon-tshirt:before {
+    content: "\f162";
+}
+.icon-tv:before {
+    content: "\f163";
+}
+.icon-whistle-1:before {
+    content: "\f164";
+}
+.icon-whistle:before {
+    content: "\f165";
+}

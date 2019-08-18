@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td>Team</td>
+                    <td>Matches</td>
+                    <td>Player</td>
+                    <td>Pts</td>
+                </tr>
+            </thead>
+            <tr *ngFor="let stand of standings">
+                <td>1</td>
+                <td>{{stand.name}}</td>
+                <td>{{stand.matches}}</td>
+                <td></td>
+                <td>{{stand.points}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

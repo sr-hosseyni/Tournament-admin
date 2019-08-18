@@ -4,13 +4,16 @@
             <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Dashboard' | translate }}
         </a>
         <a routerLink="/tournaments" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-futbol-o"></i>&nbsp;{{ 'Tournament' | translate }}
+            <i class="fa icon-trophy-4"></i>&nbsp;{{ 'Tournament' | translate }}
         </a>
         <a routerLink="/matches" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-futbol-o"></i>&nbsp;{{ 'Matches' | translate }}
+            <i class="fa icon-ball-in-midair-2"></i>&nbsp;{{ 'Matches' | translate }}
         </a>
         <a routerLink="/matches-result" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-futbol-o"></i>&nbsp;{{ 'Matches Result' | translate }}
+            <i class="fa icon-counter"></i>&nbsp;{{ 'Matches Result' | translate }}
+        </a>
+        <a routerLink="/results" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa icon-position"></i>&nbsp;{{ 'Results' | translate }}
         </a>
         <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'Charts' | translate }}

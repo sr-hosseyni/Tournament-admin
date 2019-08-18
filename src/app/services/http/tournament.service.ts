@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 
 const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-import {Tournament} from '../../entities/tournament';
+import {Tournament} from '../../entities';
 
 
 @Injectable()
@@ -19,14 +19,12 @@ export class TournamentService {
 
     getTournaments(): Observable<Tournament[]> {
         return this.http.get<Tournament[]>('/api/tournament');
-//            .map(res => JSON.parse<Tournament[]>(res, Tournament));
-//            .catch(this.handleError);
     }
 
     getTournament(id: number): Observable<Tournament> {
         return this.http.get<Tournament>('/api/tournament/' + id);
-//            .map(res => JSON.parse<Tournament[]>(res, Tournament));
-//            .catch(this.handleError);
+        //            .map(res => JSON.parse<Tournament[]>(res, Tournament));
+        //            .catch(this.handleError);
     }
 
     create(tournament: Tournament) {
